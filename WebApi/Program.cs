@@ -4,6 +4,7 @@ using Application.Services;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -27,6 +28,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
+//builder.Services.AddRazorPages();
 //builder.Services.AddRazorPages();
 
 //builder.Services.AddControllers();
@@ -65,6 +67,11 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapRazorPages(options =>
+//{
+//    options.Conventions.AddPageRoute("/Registration", "registration");
+//});
+//app.MapRazorPages();
 app.MapControllers();
 
 app.Run();
