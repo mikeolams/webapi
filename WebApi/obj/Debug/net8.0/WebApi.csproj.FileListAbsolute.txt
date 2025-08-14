@@ -187,3 +187,4 @@ C:\Users\user\source\repos\WebApi\WebApi\obj\Debug\net8.0\WebApi.RazorAssemblyIn
 C:\Users\user\source\repos\WebApi\WebApi\obj\Debug\net8.0\WebApi.RazorAssemblyInfo.cs
 C:\Users\user\source\repos\WebApi\WebApi\bin\Debug\net8.0\WebApi.staticwebassets.runtime.json
 C:\Users\user\source\repos\WebApi\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
+C:\Users\user\source\repos\WebApi\WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll

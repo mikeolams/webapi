@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public class RegistrationFormDto(int userId, string FullName, string Email, string Password, byte[] PassportPhotograph)
+    public class RegistrationFormDto(int userId, string FullName, string Email, string Password, IFormFile? PassportPhotograph)
     {
         public int userId { get; } = userId;
         public string FullName { get; } = FullName;
         public string Email { get; } = Email;
         public string Password { get; } = Password;
-        public byte[] PassportPhotograph { get; } = PassportPhotograph;
+        public IFormFile? PassportPhotograph { get; } = PassportPhotograph;
         //public ResumeForm ResumeForm { get; } = ResumeForm;
     }
 }

@@ -1,8 +1,23 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@* the view is expecting a model of type IEnumerable<RegistrationForm> *@
+@* @model IEnumerable<WebApi.ViewsModel.RegistrationForm> *@
+    @* view is meant to display a single RegistrationForm *@
+    @* Also, don't forget to add enctype="multipart/form-data" to your form tag if you're uploading files: *@
 
-@model IEnumerable<WebApi.ViewsModel.RegistrationForm>
+
+@* <form method="post" enctype="multipart/form-data">
+    //...
+</form>
+
+
+And update your PassportPhotograph property to IFormFile type:
+
+
+public IFormFile? PassportPhotograph { get; set; } *@
+
+@model WebApi.ViewsModel.RegistrationForm
 @{
     ViewData["Title"] = "Registration Form";
 }
@@ -12,33 +27,34 @@
 
 <div class="row">
     <div class="col-6">
-        <form method="post">
-            <div asp-asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="registration.fullName" class="control-label"></label>
-                <input asp-for="registration.fullName" class="form-control" />
-                <span asp-validation-for="registration.fullName" class="text-danger"></span>
+                <label asp-for="FullName" class="control-label">Full Name:</label>
+                <input asp-for="FullName" name="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="registration.email" class="control-label"></label>
-                <input asp-for="registration.email" class="form-control" />
-                <span asp-validation-for="registration.email" class="text-danger"></span>
+                <label asp-for="Email" class="control-label">Email:</label>
+                <input asp-for="Email" name="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="registration.password" class="control-label"></label>
-                <input asp-for="registration.password" class="form-control" />
-                <span asp-validation-for="registration.password" class="text-danger"></span>
+                <label asp-for="Password" class="control-label">Password:</label>
+                <input asp-for="Password" name="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="registration.password" class="control-label"></label>
-                <input asp-for="registration.password" class="form-control" />
-                <span asp-validation-for="registration.password" class="text-danger"></span>
+                <label asp-for="ConfirmPassword" class="control-label">Confirm Password:</label>
+                <input asp-for="ConfirmPassword" name="ConfirmPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="registration.passportPhotograph" class="control-label"></label>
-                <input asp-for="registration.passportPhotograph" class="form-control" />
-                <span asp-validation-for="registration.passportPhotograph" class="text-danger"></span>
+                <label asp-for="PassportPhotograph" class="control-label">Passport Photograph:</label>
+                <input asp-for="PassportPhotograph" name="PassportPhotograph" class="form-control" type="file" />
+                <span asp-validation-for="PassportPhotograph" class="text-danger"></span>
             </div>
+        
             <div class="form-group mt-2">
                 <a href="/home" class="btn btn-danger">Back</a>
                 <input type="submit" value="Register" class="btn btn-primary"/>
@@ -52,3 +68,4 @@
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
 }
 }
+   

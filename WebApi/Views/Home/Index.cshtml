@@ -12,15 +12,16 @@
     <h1 class="display-4">Mike</h1>
     <p>Test-Part1 <a href="https://github.com/mikeolams">building Web apps with ASP.NET Core to fulfill ASP.NET MVC (with Razor Views) and Web API requirement </a>.</p>
 </div>
+ @* System.Console.WriteLine(_name); *@
 <a asp-page="/Registration" class="btn btn-success float-end">Create</a>
 <table class="table table-responsive table-striped table-hover align-middle">
     <thead>
         <tr class="text-center">
-                <th>( userId)</th>
-                <th>(FullName)</th>
-                <th>(Email)</th>
-                <th>(Password)</th>
-                <th>(PassportPhotograph)</th>
+                <th>UserId</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>PassportPhotograph</th>
                 @* <th>@Html.DisplayNameFor(model => model.PassportPhotograph)</th> *@
             <th>Actions</th>
         </tr>
@@ -28,12 +29,18 @@
     <tbody>
         @foreach (var registration in Model)
         {
+            @* Console.WriteLine(registration); *@
             <tr class="text-center">
                     <td>@Html.DisplayFor(model => registration.userId)</td>
                     <td>@Html.DisplayFor(model => registration.fullName)</td>
                     <td>@Html.DisplayFor(model => registration.email)</td>
                     <td>@Html.DisplayFor(model => registration.password)</td>
                     <td>@Html.DisplayFor(model => registration.passportPhotograph)</td>
+                @* <td>@Html.DisplayFor(model => registration.userId)</td>
+                <td>@Html.DisplayFor(model => registration.fullName)</td>
+                <td>@Html.DisplayFor(model => registration.email)</td>
+                <td>@Html.DisplayFor(model => registration.password)</td>
+                <td>@Html.DisplayFor(model => registration.passportPhotograph)</td> *@
                 <td>
                     <a asp-page="./Edit" asp-route-id="@registration.userId" class="btn btn-primary">Edit</a>
                     <a asp-page="./Detail" asp-route-id="@registration.userId" class="btn btn-success">Details</a>

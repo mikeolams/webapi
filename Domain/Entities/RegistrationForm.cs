@@ -15,7 +15,7 @@ namespace Domain.Entities
         public string? Email { get; set; }
         public string? Password { get; set; }
         public required string ConfirmPassword { get; set; }
-        public byte[] PassportPhotograph { get; set; }
+        public IFormFile? PassportPhotograph { get; set; }
         public ResumeForm ResumeForm { get; set; }
     }
 }

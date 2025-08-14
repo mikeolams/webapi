@@ -26,7 +26,7 @@
                             <a class="nav-link text-dark" asp-area="" href="/resumeview">Resume</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" href="/home" ">Home</a>
+                            <a class="nav-link text-dark" asp-area="" href="/home">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -41,13 +41,15 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - WebApi - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2025 - WebApi - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @* <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script> *@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

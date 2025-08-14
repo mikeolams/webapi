@@ -23,6 +23,8 @@ namespace Infrastructure.Data
             //modelBuilder.Entity<Product>()
             //    .Property(p => p.Price)
             //    .HasPrecision(18, 2); // Specify the precision and scale
+            //modelBuilder.Entity<RegistrationForm>().Ignore(r => r.ConfirmPassword);
+            modelBuilder.Entity<RegistrationForm>().Ignore(r => r.PassportPhotograph);
 
             modelBuilder.Entity<RegistrationForm>()
                 .HasKey(r => r.userId);

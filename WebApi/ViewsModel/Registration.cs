@@ -9,8 +9,10 @@ namespace WebApi.ViewsModel
             public string? fullName { get; set; }
             public string? email { get; set; }
             public string? password { get; set; }
+            public string? ConfirmPassword { get; set; }
         //public byte[]? PassportPhotograph { get; set; }
-            public string? passportPhotograph { get; set; }
+        //public IFormFile? passportPhotograph { get; set; }
+            public string passportPhotograph { get; set; }
 
     }
 }
