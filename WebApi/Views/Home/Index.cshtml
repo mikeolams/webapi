@@ -13,7 +13,7 @@
     <p>Test-Part1 <a href="https://github.com/mikeolams">building Web apps with ASP.NET Core to fulfill ASP.NET MVC (with Razor Views) and Web API requirement </a>.</p>
 </div>
  @* System.Console.WriteLine(_name); *@
-<a asp-page="/Registration" class="btn btn-success float-end">Create</a>
+<a asp-controller="RegistrationView" class="btn btn-success float-end">Register</a>
 <table class="table table-responsive table-striped table-hover align-middle">
     <thead>
         <tr class="text-center">
@@ -42,9 +42,9 @@
                 <td>@Html.DisplayFor(model => registration.password)</td>
                 <td>@Html.DisplayFor(model => registration.passportPhotograph)</td> *@
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@registration.userId" class="btn btn-primary">Edit</a>
-                    <a asp-page="./Detail" asp-route-id="@registration.userId" class="btn btn-success">Details</a>
-                    <a asp-page="./Delete" asp-route-id="@registration.userId" class="btn btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@registration.userId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Detail" asp-route-id="@registration.userId" class="btn btn-success">Details</a>
+                    <a asp-action="Delete" asp-route-id="@registration.userId" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

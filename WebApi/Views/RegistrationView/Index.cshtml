@@ -7,16 +7,6 @@
     @* Also, don't forget to add enctype="multipart/form-data" to your form tag if you're uploading files: *@
 
 
-@* <form method="post" enctype="multipart/form-data">
-    //...
-</form>
-
-
-And update your PassportPhotograph property to IFormFile type:
-
-
-public IFormFile? PassportPhotograph { get; set; } *@
-
 @model WebApi.ViewsModel.RegistrationForm
 @{
     ViewData["Title"] = "Registration Form";
@@ -27,21 +17,21 @@ public IFormFile? PassportPhotograph { get; set; } *@
 
 <div class="row">
     <div class="col-6">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post"  enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div  class="form-group">
                 <label asp-for="FullName" class="control-label">Full Name:</label>
-                <input asp-for="FullName" name="FullName" class="form-control" />
+                <input asp-for="FullName" class="form-control" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label">Email:</label>
-                <input asp-for="Email" name="Email" class="form-control" />
+                <input asp-for="Email"  class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label">Password:</label>
-                <input asp-for="Password" name="Password" class="form-control" type="password" />
+                <input asp-for="Password" name="Password"  class="form-control" type="password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -56,16 +46,16 @@ public IFormFile? PassportPhotograph { get; set; } *@
             </div>
         
             <div class="form-group mt-2">
-                <a href="/home" class="btn btn-danger">Back</a>
-                <input type="submit" value="Register" class="btn btn-primary"/>
+                <a asp-controller="home" class="btn btn-danger">Back</a>
+                <input type="submit" value="Register" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-@section Scripts{
+@* @section Scripts{
 @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
 }
-}
+} *@
    

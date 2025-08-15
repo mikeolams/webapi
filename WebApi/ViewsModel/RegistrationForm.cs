@@ -1,21 +1,34 @@
-﻿namespace WebApi.ViewsModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApi.ViewsModel
 {
+
+
     public class RegistrationForm
     {
-            //public int userId { get; set; }
-
-            public string? FullName { get; set; }
-            public string? Email { get; set; }
+        //public int userId { get; set; }
+        [Required]
+        public string? FullName { get; set; }
+        [Required]
+        [EmailAddress]
+        public string? Email { get; set; }
             public string? Password { get; set; }
-            //public string? password { get; set; }
-            public string? ConfirmPassword { get; set; }
+        //public string? password { get; set; }
+        [Required]
+        [Compare("Password")]
+        public string? ConfirmPassword { get; set; }
         //public byte[]? PassportPhotograph { get; set; }
+        [Required]
+        [Controllers.RegistrationViewController.AllowedFileExtensions(new[] { ".jpg", ".png" })]
         public IFormFile? PassportPhotograph { get; set; }
             //public IFormFile? PassportPhotograph { get; set; }
         //{"FullName":null,"Email":null,"Password":null,"ConfirmPassword":null}
         //}
 
     }
+
+    
+
 }
 
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
 using WebApi.ViewsModel;
 
@@ -16,6 +17,40 @@ namespace WebApi.Controllers
 
         public void OnGet()
         {
+        }
+
+        public class AllowedFileExtensionsAttribute : ValidationAttribute
+        {
+            private readonly string[] _allowedExtensions;
+
+            public AllowedFileExtensionsAttribute(string[] allowedExtensions)
+            {
+                _allowedExtensions = allowedExtensions;
+            }
+
+            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+            {
+                var file = value as IFormFile;
+                if (file != null)
+                {
+                    // Access the object
+                    var fileExtension = Path.GetExtension(file.FileName).ToLower();
+
+                    if (!_allowedExtensions.Contains(fileExtension))
+                    {
+                        return new ValidationResult("Only .jpg and .png files are allowed");
+                    }
+
+                    return ValidationResult.Success;
+                }
+                else
+                {
+                    return ValidationResult.Success;
+
+
+                }
+                   
+            }
         }
 
 
