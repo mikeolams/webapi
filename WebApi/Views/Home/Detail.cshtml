@@ -1,0 +1,34 @@
+﻿@* @model WebApi.Views.Home.DeleteModel *@
+@model WebApi.ViewsModel.Registration
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Details</h1>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.userId)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.userId)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.fullName)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.fullName)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Back</a>
+    <a  asp-action="EditGet" asp-route-userId="@Model.userId" class="btn btn-primary">Edit</a>
+</div>
