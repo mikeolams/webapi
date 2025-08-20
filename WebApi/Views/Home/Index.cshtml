@@ -25,6 +25,12 @@
                 @* <th>@Html.DisplayNameFor(model => model.PassportPhotograph)</th> *@
             <th>Actions</th>
         </tr>
+        @* <tr class="text-center">
+            <th>@Html.DisplayNameFor(model => model.Registration[0].userId)</th>
+            <th>@Html.DisplayNameFor(model => model.Registration[0].userId)</th>
+            <th>@Html.DisplayNameFor(model => model.Registration[0].userId)</th>
+            <th>Actions</th>
+        </tr> *@
     </thead>
     <tbody>
         @foreach (var registration in Model)
@@ -39,12 +45,13 @@
                 @* <td>@Html.DisplayFor(model => registration.userId)</td>
                 <td>@Html.DisplayFor(model => registration.fullName)</td>
                 <td>@Html.DisplayFor(model => registration.email)</td>
-                <td>@Html.DisplayFor(model => registration.password)</td>
+                <td>@Html.DisplayFor(model => registration.password)</td>asp-action="Delete" asp-route-userId="@Model.userId"
                 <td>@Html.DisplayFor(model => registration.passportPhotograph)</td> *@
                 <td>
-                    <a asp-action="Edit" asp-route-id="@registration.userId" class="btn btn-primary">Edit</a>
-                    <a asp-action="Detail" asp-route-id="@registration.userId" class="btn btn-success">Details</a>
-                    <a asp-action="Delete" asp-route-id="@registration.userId" class="btn btn-danger">Delete</a>
+                    <a asp-controller="Home" asp-action="EditGet" asp-route-userId="@registration.userId" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Home" asp-action="DetailGet" asp-route-userId="@registration.userId" class="btn btn-success">Details</a>
+                    <a asp-controller="Home" asp-action="DeleteGet" asp-route-userId="@registration.userId" class="btn btn-danger">Delete</a>
+                    @* <a asp-controller="Delete" asp-route-id="@registration.userId" class="btn btn-danger">Delete</a> *@
                 </td>
             </tr>
         }

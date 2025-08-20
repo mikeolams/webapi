@@ -6,6 +6,8 @@ namespace WebApi.ViewsModel
 
     public class RegistrationForm
     {
+        public Registration? Registration { get; set; }
+
         //public int userId { get; set; }
         [Required]
         public string? FullName { get; set; }

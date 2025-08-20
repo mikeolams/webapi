@@ -82,7 +82,7 @@
         ],
         "parameters": [
           {
-            "name": "userId",
+            "name": "UserId",
             "in": "query",
             "schema": {
               "type": "integer",
